@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xuxiang.dao.UserMapper">
+    <resultMap id="UserMap" type="com.xuxiang.common.pojo.TbUser">
+        <result column="uid" jdbcType="SMALLINT" property="uid"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+    </resultMap>
+
+    <select id="selectTbUser" resultMap="UserMap">
+        SELECT *  FROM user_dubbo where username =#{username}
+    </select>
+
+    <insert id="insertTbUser" keyProperty="uid" parameterType="TbUser" useGeneratedKeys="true">
+        INSERT INTO user_dubbo (`username`, `password`)
+        VALUES (#{username},#{password}) ;
+
+    </insert>
+</mapper>

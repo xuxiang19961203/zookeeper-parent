@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--解决idea thymeleaf 表达式模板报红波浪线-->
+<!--suppress ALL -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>index</title>
+    <link rel="shortcut icon" th:href="@{/favicon.ico}"/>
+    <script type="text/javascript" src="/js/jquery-3.4.1.js"></script>
+</head>
+<body>
+<form th:action="@{/user/login}" id="login_form" method="post">
+    <table border="1">
+        username: <input type="text" name="username" id="username" value="zhangsan"> </br>
+        password:<input type="password" name="password" id="password" value="123"> </br>
+        backup:<input type="hidden" name="backup" id="backup" th:value="${backup }"> </br>
+        <input type="button" value="登录" onclick="loginAndRedirect();">
+    </table>
+</form>
+</body>
+
+<script th:inline="javascript">
+    function loginAndRedirect() {
+       // let RedirectURL = "http://localhost:8084/page/index";
+        let RedirectURL = $("#backup").val();
+        //$("#backup").html();
+        alert("登录成功后将跳转至" + RedirectURL);
+        $.ajax({
+            url: "http://localhost:8083/user/login/",
+            dataType: "json",
+            type: "POST",
+            data: $("#login_form").serialize(),
+            success: function (data) {
+                if (data.status == 200) {
+                    window.location = RedirectURL
+                }
+            }
+        })
+    }
+</script>
+</html>

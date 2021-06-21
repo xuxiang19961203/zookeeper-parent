@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<!--解决idea thymeleaf 表达式模板报红波浪线-->
+<!--suppress ALL -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>index</title>
+    <link rel="shortcut icon" th:href="@{/favicon.ico}"/>
+</head>
+<body>
+<form th:action="@{/category/queryByKeywords3}" method="post">
+    <table border="1">
+     请输入搜索关键字:<input type="text" name="keywords" > </br>
+        开始页码<input type="text" name="pageStart" value="1"> </br>
+        每页大小<input type="text" name="pageRows" value="3"> </br>
+        <input type="submit" name="查询">
+    </table>
+</form>
+
+</body>
+</html>

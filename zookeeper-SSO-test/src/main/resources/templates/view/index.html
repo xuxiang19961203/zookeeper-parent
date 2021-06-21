@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<!--解决idea thymeleaf 表达式模板报红波浪线-->
+<!--suppress ALL -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>index</title>
+    <link rel="shortcut icon" th:href="@{/favicon.ico}"/>
+    <script type="text/javascript" src="/js/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/js/login.js" charset="utf-8"></script>
+</head>
+<body>
+<form th:action="@{/category/queryByKeywords}" method="post">
+    <table border="1">
+        <div>我是8084端口</div>
+        <a href="http://localhost:8083/page/login?backup=http://localhost:8084/page/index">点此登录</a>
+        <div id ="loginbar">  </div>
+    </table>
+</form>
+</body>
+</html>

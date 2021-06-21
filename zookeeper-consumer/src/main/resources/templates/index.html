@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<!--解决idea thymeleaf 表达式模板报红波浪线-->
+<!--suppress ALL -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>index</title>
+    <link rel="shortcut icon" th:href="@{/favicon.ico}"/>
+</head>
+<body>
+<form th:action="@{/category/queryByKeywords}" method="post">
+    <table border="1">
+     请输入搜索关键字:
+        <input type="text" name="keywords" > </br>
+        <input type="submit">
+    </table>
+</form>
+
+</body>
+</html>

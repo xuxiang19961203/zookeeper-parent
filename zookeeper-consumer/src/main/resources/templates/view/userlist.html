@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <link rel="shortcut icon" th:href="@{/favicon.ico}" type="image/x-icon"/>
+    <script type="text/javascript" th:src="@{js/jquery-3.4.1.js}"></script>
+</head>
+<body>
+<center>
+<form th:action="@{/upload/imageUpload}" method="post">
+    <table border="1">
+        <tr>
+            <td>uid</td>
+            <td>username</td>
+            <td>operation</td>
+        </tr>
+        <tr th:each="user,userstat:${PageInfo.getList()}">
+            <td th:text="${user.uid}"></td>
+            <td th:text="${user.username}"></td>
+            <td><a href="#">查看</a></td>
+        </tr>
+    </table>
+<a th:if="${!PageInfo.isIsFirstPage()}"
+   th:href="@{/user/userList(pageNum=1)}">首页</a>
+<a th:if="${!PageInfo.isIsFirstPage()}"
+   th:href="@{/user/userList(pageNum=${PageInfo.prePage})}">上一页</a>
+<a th:if="${!PageInfo.isIsLastPage()}"
+   th:href="@{/user/userList(pageNum=${PageInfo.nextPage})}">下一页</a>
+<a th:if="${!PageInfo.isIsLastPage()}"
+   th:href="@{/user/userList(pageNum=${PageInfo.getPages()})}">尾页</a>
+</form>
+</center>
+</body>
+</html>

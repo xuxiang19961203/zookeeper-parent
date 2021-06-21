@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<!--解决idea thymeleaf 表达式模板报红波浪线-->
+<!--suppress ALL -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>index</title>
+    <link rel="shortcut icon" th:href="@{/favicon.ico}"/>
+</head>
+<body>
+<form th:action="@{/user/register}" method="post">
+    <table border="1">
+        username: <input type="text" name="username" value=""> </br>
+        password:<input type="password" name="password" value=""> </br>
+        <input type="submit"   value="注册">
+    </table>
+</form>
+
+</body>
+</html>
