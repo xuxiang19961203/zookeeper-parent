@@ -13,6 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class application_test {
     public static void main(String[] args) {
+        System.out.println("测试application");
         SpringApplication.run(application_test.class,args);
     }
 }
